@@ -28,8 +28,8 @@ create table endereco (
 );
 
 create table cliente_endereco (
-	cliente_id int, foreign key (cliente_id) references cliente(id),
-	endereco_id int, foreign key (endereco_id) references endereco(id)
+	cliente_id int, foreign key (cliente_id) references cliente(cliente_id),
+	endereco_id int, foreign key (endereco_id) references endereco(endereco_id)
 );
 
 create table categoria (
@@ -59,8 +59,8 @@ create table equipamento (
 	descricao text not null,
 	valor_diaria numeric(5,2) not null,
 	estado varchar(50) not null,
-	categoria_id int, foreign key (categoria_id) references categoria(id),
-	marca_id int, foreign key (marca_id) references marca(id)
+	categoria_id int, foreign key (categoria_id) references categoria(categoria_id),
+	marca_id int, foreign key (marca_id) references marca(marca_id)
 );
 
 create table aluguel (
@@ -68,15 +68,16 @@ create table aluguel (
 	data_locacao date not null,
 	data_devolucao date not null,
 	valor_total numeric(10,2) not null,
-	status varchar(50) not null
+	status varchar(50) not null,
+	cliente_id int, foreign key (cliente_id) references cliente(cliente_id)
 );
 
 create table aluguel_item(
 	aluguel_item_id serial primary key,
 	quantidade varchar(50) not null,
 	valor_unitario numeric(5,2) not null,
-	aluguel_id int, foreign key (aluguel_id) references aluguel(id),
-	equipamento_id int, foreign key (equipamento_id) references equipamento(id)
+	aluguel_id int, foreign key (aluguel_id) references aluguel(aluguel_id),
+	equipamento_id int, foreign key (equipamento_id) references equipamento(equipamento_id)
 );
 
 create table alerta(
@@ -85,7 +86,7 @@ create table alerta(
 	descricao text not null,
 	data_alerta date not null,
 	status varchar(50) not null,
-	equipamento_id int, foreign key (equipamento_id) references equipamento(id)
+	equipamento_id int, foreign key (equipamento_id) references equipamento(equipamento_id)
 );
 
 create table movimentacao(
@@ -93,6 +94,6 @@ create table movimentacao(
 	tipo varchar(50) not null,
 	quantidade varchar(50) not null,
 	data_movimentacao date not null,
-	equipamento_id int, foreign key (equipamento_id) references equipamento(id),
-	funcionario_id int, foreign key (funcionario_id) references funcionario(id)
+	equipamento_id int, foreign key (equipamento_id) references equipamento(equipamento_id),
+	funcionario_id int, foreign key (funcionario_id) references funcionario(usuario_id)
 );
