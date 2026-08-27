@@ -1,11 +1,14 @@
 package com.backend.rental_events.models;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -25,22 +28,24 @@ public class Aluguel {
     @Column(name = "valor_total")
     private Double valorTotal;
 
-    @Column(name = "cliente_id")
-    private Integer clienteId;
-
     @Column(name = "status")
     private String status;
+
+    @OneToOne
+    @JoinColumn(name = "cliente_id")
+    private List<Cliente> cliente;
 
     public Aluguel() {
     }
 
-    public Aluguel(Integer aluguelId, LocalDateTime dataLocacao, LocalDateTime dataDevolucao, Double valorTotal, Integer clienteId, String status) {
+    public Aluguel(Integer aluguelId, LocalDateTime dataLocacao, LocalDateTime dataDevolucao, Double valorTotal,
+            String status, List<Cliente> cliente) {
         this.aluguelId = aluguelId;
         this.dataLocacao = dataLocacao;
         this.dataDevolucao = dataDevolucao;
         this.valorTotal = valorTotal;
-        this.clienteId = clienteId;
         this.status = status;
+        this.cliente = cliente;
     }
 
     public Integer getAluguelId() {
@@ -75,14 +80,6 @@ public class Aluguel {
         this.valorTotal = valorTotal;
     }
 
-    public Integer getClienteId() {
-        return clienteId;
-    }
-
-    public void setClienteId(Integer clienteId) {
-        this.clienteId = clienteId;
-    }
-
     public String getStatus() {
         return status;
     }
@@ -90,4 +87,14 @@ public class Aluguel {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public List<Cliente> getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(List<Cliente> cliente) {
+        this.cliente = cliente;
+    }
+
+    
 }

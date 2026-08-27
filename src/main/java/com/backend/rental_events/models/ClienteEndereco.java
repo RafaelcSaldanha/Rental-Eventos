@@ -1,9 +1,13 @@
 package com.backend.rental_events.models;
 
+import java.util.List;
 import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -14,20 +18,21 @@ public class ClienteEndereco {
     @Column(name = "cliente_endereco_id")
     private Integer clienteEnderecoId;
 
-    @Column(name = "cliente_id")
-    private Integer clienteId;
+    @OneToMany
+    @JoinColumn(name = "cliente_id")
+    private List<Cliente> cliente;
 
-    @Column(name = "endereco_id")
-    private Integer enderecoId;
+    @OneToOne
+    @JoinColumn(name = "endereco_id")
+    private List<Endereco> endereco;
 
     public ClienteEndereco() {
-
     }
 
-    public ClienteEndereco(Integer clienteEnderecoId, Integer clienteId, Integer enderecoId) {
+    public ClienteEndereco(Integer clienteEnderecoId, List<Cliente> cliente, List<Endereco> endereco) {
         this.clienteEnderecoId = clienteEnderecoId;
-        this.clienteId = clienteId;
-        this.enderecoId = enderecoId;
+        this.cliente = cliente;
+        this.endereco = endereco;
     }
 
     public Integer getClienteEnderecoId() {
@@ -38,21 +43,19 @@ public class ClienteEndereco {
         this.clienteEnderecoId = clienteEnderecoId;
     }
 
-    public Integer getClienteId() {
-        return clienteId;
+    public List<Cliente> getCliente() {
+        return cliente;
     }
 
-    public void setClienteId(Integer clienteId) {
-        this.clienteId = clienteId;
+    public void setCliente(List<Cliente> cliente) {
+        this.cliente = cliente;
     }
 
-    public Integer getEnderecoId() {
-        return enderecoId;
+    public List<Endereco> getEndereco() {
+        return endereco;
     }
 
-    public void setEnderecoId(Integer enderecoId) {
-        this.enderecoId = enderecoId;
+    public void setEndereco(List<Endereco> endereco) {
+        this.endereco = endereco;
     }
-
-    
 }

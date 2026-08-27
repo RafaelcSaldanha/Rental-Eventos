@@ -1,9 +1,14 @@
 package com.backend.rental_events.models;
 
+import java.util.List;
+
 import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -20,23 +25,24 @@ public class AluguelItem {
     @Column(name = "valor_unitario")
     private Double valorUnitario;
 
-    @Column(name = "aluguel_id")
-    private Integer aluguelId;
+    @OneToOne
+    @JoinColumn(name = "aluguel_id")
+    private List<Aluguel> aluguel;
 
-    @Column(name = "equipamento_id")
-    private Integer equipamentoId;
+    @OneToMany
+    @JoinColumn(name = "equipamento_id")
+    private List<Equipamento> equipamento;
 
     public AluguelItem() {
-
     }
 
-    public AluguelItem(Integer aluguelItemId, Integer quantidade, Double valorUnitario, Integer aluguelId,
-            Integer equipamentoId) {
+    public AluguelItem(Integer aluguelItemId, Integer quantidade, Double valorUnitario, List<Aluguel> aluguel,
+            List<Equipamento> equipamento) {
         this.aluguelItemId = aluguelItemId;
         this.quantidade = quantidade;
         this.valorUnitario = valorUnitario;
-        this.aluguelId = aluguelId;
-        this.equipamentoId = equipamentoId;
+        this.aluguel = aluguel;
+        this.equipamento = equipamento;
     }
 
     public Integer getAluguelItemId() {
@@ -63,20 +69,20 @@ public class AluguelItem {
         this.valorUnitario = valorUnitario;
     }
 
-    public Integer getAluguelId() {
-        return aluguelId;
+    public List<Aluguel> getAluguel() {
+        return aluguel;
     }
 
-    public void setAluguelId(Integer aluguelId) {
-        this.aluguelId = aluguelId;
+    public void setAluguel(List<Aluguel> aluguel) {
+        this.aluguel = aluguel;
     }
 
-    public Integer getEquipamentoId() {
-        return equipamentoId;
+    public List<Equipamento> getEquipamento() {
+        return equipamento;
     }
 
-    public void setEquipamentoId(Integer equipamentoId) {
-        this.equipamentoId = equipamentoId;
+    public void setEquipamento(List<Equipamento> equipamento) {
+        this.equipamento = equipamento;
     }
 
     

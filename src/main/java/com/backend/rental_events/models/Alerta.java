@@ -1,11 +1,14 @@
 package com.backend.rental_events.models;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -25,23 +28,24 @@ public class Alerta {
     @Column(name = "data_alerta")
     private LocalDateTime dataAlerta;
 
-    @Column(name = "equipamento_id")
-    private Integer equipamentoId;
-
     @Column(name = "status")
     private String status;
+
+    @OneToOne
+    @JoinColumn(name = "equipamento_id")
+    private List<Equipamento> equipamento;
 
     public Alerta() {
     }
 
-    public Alerta(Integer alertaId, String tipo, String descricao, LocalDateTime dataAlerta, Integer equipamentoId,
-            String status) {
+    public Alerta(Integer alertaId, String tipo, String descricao, LocalDateTime dataAlerta, String status,
+            List<Equipamento> equipamento) {
         this.alertaId = alertaId;
         this.tipo = tipo;
         this.descricao = descricao;
         this.dataAlerta = dataAlerta;
-        this.equipamentoId = equipamentoId;
         this.status = status;
+        this.equipamento = equipamento;
     }
 
     public Integer getAlertaId() {
@@ -76,20 +80,20 @@ public class Alerta {
         this.dataAlerta = dataAlerta;
     }
 
-    public Integer getEquipamentoId() {
-        return equipamentoId;
-    }
-
-    public void setEquipamentoId(Integer equipamentoId) {
-        this.equipamentoId = equipamentoId;
-    }
-
     public String getStatus() {
         return status;
     }
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public List<Equipamento> getEquipamento() {
+        return equipamento;
+    }
+
+    public void setEquipamento(List<Equipamento> equipamento) {
+        this.equipamento = equipamento;
     }
 
     

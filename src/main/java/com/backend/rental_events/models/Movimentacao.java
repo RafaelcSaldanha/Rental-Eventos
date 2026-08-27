@@ -1,11 +1,15 @@
 package com.backend.rental_events.models;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -25,23 +29,25 @@ public class Movimentacao {
     @Column(name = "data_movimentacao")
     private LocalDate dataMovimentacao;
 
-    @Column(name = "equipamento_id")
-    private Integer equipamentoId;
+    @OneToOne
+    @JoinColumn(name = "equipamento_id")
+    private List<Equipamento> equipamento;
 
-    @Column(name = "funcionario_id")
-    private Integer funcionarioId;
+    @OneToMany
+    @JoinColumn(name = "funcionario_id")
+    private List<Funcionario> funcionario;
 
     public Movimentacao() {
     }
 
     public Movimentacao(Integer movimentacaoId, String tipo, String quantidade, LocalDate dataMovimentacao,
-            Integer equipamentoId, Integer funcionarioId) {
+            List<Equipamento> equipamento, List<Funcionario> funcionario) {
         this.movimentacaoId = movimentacaoId;
         this.tipo = tipo;
         this.quantidade = quantidade;
         this.dataMovimentacao = dataMovimentacao;
-        this.equipamentoId = equipamentoId;
-        this.funcionarioId = funcionarioId;
+        this.equipamento = equipamento;
+        this.funcionario = funcionario;
     }
 
     public Integer getMovimentacaoId() {
@@ -76,20 +82,20 @@ public class Movimentacao {
         this.dataMovimentacao = dataMovimentacao;
     }
 
-    public Integer getEquipamentoId() {
-        return equipamentoId;
+    public List<Equipamento> getEquipamento() {
+        return equipamento;
     }
 
-    public void setEquipamentoId(Integer equipamentoId) {
-        this.equipamentoId = equipamentoId;
+    public void setEquipamento(List<Equipamento> equipamento) {
+        this.equipamento = equipamento;
     }
 
-    public Integer getFuncionarioId() {
-        return funcionarioId;
+    public List<Funcionario> getFuncionario() {
+        return funcionario;
     }
 
-    public void setFuncionarioId(Integer funcionarioId) {
-        this.funcionarioId = funcionarioId;
+    public void setFuncionario(List<Funcionario> funcionario) {
+        this.funcionario = funcionario;
     }
 
     

@@ -1,9 +1,13 @@
 package com.backend.rental_events.models;
 
+import java.util.List;
 import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table; 
 
 @Entity
@@ -50,18 +54,20 @@ public class Equipamento {
     @Column(name = "estado")
     private String estado;
 
-    @Column(name = "categoria_id")
-    private Integer categoriaId;
+    @OneToOne
+    @JoinColumn(name = "categoria_id", referencedColumnName = "categoria_id")
+    private List<Categoria> categoria;
 
-    @Column(name = "marca_id")
-    private Integer marcaId;
+    @OneToMany
+    @JoinColumn(name = "marca_id", referencedColumnName = "marca_id")
+    private List<Marca> marca;
 
     public Equipamento() {
     }
 
     public Equipamento(Integer equipamentoId, String nome, String modelo, String potencia, String material, String peso,
             String dimensoes, String cor, Integer quantidadeDisponivel, Integer quantidadeMinima, String descricao,
-            String valorDiaria, String estado, Integer categoriaId, Integer marcaId) {
+            String valorDiaria, String estado, List<Categoria> categoria, List<Marca> marca) {
         this.equipamentoId = equipamentoId;
         this.nome = nome;
         this.modelo = modelo;
@@ -75,8 +81,8 @@ public class Equipamento {
         this.descricao = descricao;
         this.valorDiaria = valorDiaria;
         this.estado = estado;
-        this.categoriaId = categoriaId;
-        this.marcaId = marcaId;
+        this.categoria = categoria;
+        this.marca = marca;
     }
 
     public Integer getEquipamentoId() {
@@ -183,21 +189,19 @@ public class Equipamento {
         this.estado = estado;
     }
 
-    public Integer getCategoriaId() {
-        return categoriaId;
+    public List<Categoria> getCategoria() {
+        return categoria;
     }
 
-    public void setCategoriaId(Integer categoriaId) {
-        this.categoriaId = categoriaId;
+    public void setCategoria(List<Categoria> categoria) {
+        this.categoria = categoria;
     }
 
-    public Integer getMarcaId() {
-        return marcaId;
+    public List<Marca> getMarca() {
+        return marca;
     }
 
-    public void setMarcaId(Integer marcaId) {
-        this.marcaId = marcaId;
+    public void setMarca(List<Marca> marca) {
+        this.marca = marca;
     }
-
-    
 }
