@@ -8,30 +8,6 @@ create table funcionario (
 	cargo varchar(30) not null
 );
 
-create table cliente (
-	cliente_id serial primary key,
-	nome varchar(50) not null,
-	sobrenome varchar(50) not null,
-	email varchar(50) not null,
-	celular char(11) not null,
-	cpf char(11) not null unique 
-);
-
-create table endereco (
-	endereco_id serial primary key,
-	estado char(2) not null,
-	cidade varchar(50) not null,
-	bairro varchar(50) not null,
-	logradouro varchar(50) not null,
-	numero varchar(50) not null,
-	cep char(8) not null
-);
-
-create table cliente_endereco (
-	cliente_id int, foreign key (cliente_id) references cliente(cliente_id),
-	endereco_id int, foreign key (endereco_id) references endereco(endereco_id)
-);
-
 create table categoria (
 	categoria_id serial primary key,
 	nome varchar(50) not null,
@@ -61,32 +37,6 @@ create table equipamento (
 	estado varchar(50) not null,
 	categoria_id int, foreign key (categoria_id) references categoria(categoria_id),
 	marca_id int, foreign key (marca_id) references marca(marca_id)
-);
-
-create table aluguel (
-	aluguel_id serial primary key,
-	data_locacao date not null,
-	data_devolucao date not null,
-	valor_total numeric(10,2) not null,
-	status varchar(50) not null,
-	cliente_id int, foreign key (cliente_id) references cliente(cliente_id)
-);
-
-create table aluguel_item(
-	aluguel_item_id serial primary key,
-	quantidade int not null,
-	valor_unitario numeric(5,2) not null,
-	aluguel_id int, foreign key (aluguel_id) references aluguel(aluguel_id),
-	equipamento_id int, foreign key (equipamento_id) references equipamento(equipamento_id)
-);
-
-create table alerta(
-	alerta_id serial primary key,
-	tipo varchar(50) not null,
-	descricao text not null,
-	data_alerta date not null,
-	status varchar(50) not null,
-	equipamento_id int, foreign key (equipamento_id) references equipamento(equipamento_id)
 );
 
 create table movimentacao(
