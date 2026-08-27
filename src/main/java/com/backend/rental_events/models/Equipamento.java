@@ -12,7 +12,7 @@ public class Equipamento {
     @Id
     @Generated(value = "org.hibernate.id.UUIDGenerator")
     @Column(name = "equipamento_id")
-    private String equipamentoId;
+    private Integer equipamentoId;
 
     @Column(name = "nome")
     private String nome;
@@ -59,7 +59,7 @@ public class Equipamento {
     public Equipamento() {
     }
 
-    public Equipamento(String equipamentoId, String nome, String modelo, String potencia, String material, String peso,
+    public Equipamento(Integer equipamentoId, String nome, String modelo, String potencia, String material, String peso,
             String dimensoes, String cor, Integer quantidadeDisponivel, Integer quantidadeMinima, String descricao,
             String valorDiaria, String estado, Integer categoriaId, Integer marcaId) {
         this.equipamentoId = equipamentoId;
@@ -79,11 +79,11 @@ public class Equipamento {
         this.marcaId = marcaId;
     }
 
-    public String getEquipamentoId() {
+    public Integer getEquipamentoId() {
         return equipamentoId;
     }
 
-    public void setEquipamentoId(String equipamentoId) {
+    public void setEquipamentoId(Integer equipamentoId) {
         this.equipamentoId = equipamentoId;
     }
 
@@ -197,5 +197,7 @@ public class Equipamento {
 
     public void setMarcaId(Integer marcaId) {
         this.marcaId = marcaId;
-    } 
+    }
+
+    
 }

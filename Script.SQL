@@ -74,7 +74,7 @@ create table aluguel (
 
 create table aluguel_item(
 	aluguel_item_id serial primary key,
-	quantidade varchar(50) not null,
+	quantidade int not null,
 	valor_unitario numeric(5,2) not null,
 	aluguel_id int, foreign key (aluguel_id) references aluguel(aluguel_id),
 	equipamento_id int, foreign key (equipamento_id) references equipamento(equipamento_id)
