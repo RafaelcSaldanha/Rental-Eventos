@@ -25,7 +25,7 @@ public class EquipamentoService {
         return equipamentoRepository.findAll();
     }
 
-    public Boolean deletarEquipamento(Integer id) {
+    public boolean deletarEquipamento(Integer id) {
         if (equipamentoRepository.existsById(id)) {
             equipamentoRepository.deleteById(id);
             return true;

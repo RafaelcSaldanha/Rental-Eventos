@@ -33,6 +33,10 @@ public class MovimentacaoService {
         return false;
     }
 
+    public Movimentacao cadastrarMovimentacao(Movimentacao movimentacao) {
+        return movimentacaoRepository.save(movimentacao);
+    }
+
     public Movimentacao atualizarMovimentacao(Integer id, Movimentacao movimentacao) {
         Movimentacao movimentacaoRecuperada = buscarMovimentacaoPorId(id);
         if (movimentacaoRecuperada != null) {
@@ -49,7 +53,6 @@ public class MovimentacaoService {
             if (movimentacao.getTipo() != null) {
                 movimentacaoRecuperada.setTipo(movimentacao.getTipo());
             }
-
             if (movimentacao.getQuantidade() != null) {
                 movimentacaoRecuperada.setQuantidade(movimentacao.getQuantidade());
             }

@@ -26,7 +26,7 @@ public class CategoriaService {
         return categoriaRepository.findAll();
     }
 
-    public Boolean deletarCategoria(Integer id) {
+    public boolean deletarCategoria(Integer id) {
         if (categoriaRepository.existsById(id)) {
             categoriaRepository.deleteById(id);
             return true;

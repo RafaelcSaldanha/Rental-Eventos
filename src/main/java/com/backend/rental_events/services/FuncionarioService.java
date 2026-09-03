@@ -25,7 +25,7 @@ public class FuncionarioService {
         return funcionarioRepository.findAll();
     }
 
-    public Boolean deletarFuncionario(Integer id) {
+    public boolean  deletarFuncionario(Integer id) {
         if (funcionarioRepository.existsById(id)) {
             funcionarioRepository.deleteById(id);
             return true;
