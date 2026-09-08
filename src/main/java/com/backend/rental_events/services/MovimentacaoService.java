@@ -13,6 +13,10 @@ public class MovimentacaoService {
     @Autowired
     private MovimentacaoRepository movimentacaoRepository;
 
+    public MovimentacaoService(MovimentacaoRepository _movimentacaoRepository){
+        movimentacaoRepository = _movimentacaoRepository;
+    }
+
     public Long countMovimentacoes() {
         return movimentacaoRepository.count();
     }

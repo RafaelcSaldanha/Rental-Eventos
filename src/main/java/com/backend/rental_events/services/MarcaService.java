@@ -13,6 +13,10 @@ public class MarcaService {
     @Autowired
     private MarcaRepository marcaRepository;
 
+    public MarcaService(MarcaRepository _marcaRepository){
+        marcaRepository = _marcaRepository;
+    }
+
     public Long countMarcas() {
         return marcaRepository.count();
     }

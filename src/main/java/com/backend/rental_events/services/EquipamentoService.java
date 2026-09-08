@@ -13,6 +13,10 @@ public class EquipamentoService {
     @Autowired
     private EquipamentoRepository equipamentoRepository;
 
+    public EquipamentoService(EquipamentoRepository _equipamentoRepository){
+        equipamentoRepository = _equipamentoRepository;
+    }
+
     public Long countEquipamentos() {
         return equipamentoRepository.count();
     }

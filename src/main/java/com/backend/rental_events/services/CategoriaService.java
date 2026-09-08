@@ -14,6 +14,10 @@ public class CategoriaService {
     @Autowired
     private CategoriaRepository categoriaRepository; 
 
+    public CategoriaService(CategoriaRepository _categoriaRepository){
+        categoriaRepository = _categoriaRepository;
+    }
+
     public Long countCategorias() {
         return categoriaRepository.count();
     }

@@ -1,8 +1,9 @@
 package com.backend.rental_events.models;
 
-import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -10,7 +11,7 @@ import jakarta.persistence.Table;
 @Table(name = "funcionario")
 public class Funcionario {
     @Id
-    @Generated(value = "org.hibernate.id.UUIDGenerator")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "funcionario_id")
     private Integer funcionarioId;
 
@@ -77,4 +78,6 @@ public class Funcionario {
     public void setCargo(String cargo) {
         this.cargo = cargo;
     }
+
+    
 }

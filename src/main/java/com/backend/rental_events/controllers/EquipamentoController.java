@@ -17,19 +17,14 @@ import com.backend.rental_events.services.EquipamentoService;
 @RestController
 @RequestMapping("/equipamentos")
 public class EquipamentoController {
-    private final CategoriaController categoriaController;
     @Autowired
     private EquipamentoService equipamentoService;
 
-    EquipamentoController(CategoriaController categoriaController) {
-        this.categoriaController = categoriaController;
-    }
-
     @GetMapping("/contar-equipamentos")
     public Long contarEquipamentos() {
-        if(categoriaController.contarCategorias() <= 5) {
-            return -5L;
-        }
+        //if(categoriaController.contarCategorias() <= 5) {
+        //    return -5L;
+        //}
         return equipamentoService.countEquipamentos();
     }
 

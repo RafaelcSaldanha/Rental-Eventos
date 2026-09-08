@@ -13,6 +13,10 @@ public class FuncionarioService {
     @Autowired
     private FuncionarioRepository funcionarioRepository;
 
+    public FuncionarioService(FuncionarioRepository _funcionarioRepository){
+        funcionarioRepository = _funcionarioRepository;
+    }
+
     public Long countFuncionarios() {
         return funcionarioRepository.count();
     }
