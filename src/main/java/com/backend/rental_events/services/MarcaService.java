@@ -11,7 +11,7 @@ import com.backend.rental_events.repositories.MarcaRepository;
 @Service
 public class MarcaService {
     @Autowired
-    private MarcaRepository marcaRepository;
+    private final MarcaRepository marcaRepository;
 
     public MarcaService(MarcaRepository _marcaRepository){
         marcaRepository = _marcaRepository;

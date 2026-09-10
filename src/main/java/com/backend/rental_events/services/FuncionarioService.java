@@ -11,7 +11,7 @@ import com.backend.rental_events.repositories.FuncionarioRepository;
 @Service
 public class FuncionarioService {
     @Autowired
-    private FuncionarioRepository funcionarioRepository;
+    private final FuncionarioRepository funcionarioRepository;
 
     public FuncionarioService(FuncionarioRepository _funcionarioRepository){
         funcionarioRepository = _funcionarioRepository;

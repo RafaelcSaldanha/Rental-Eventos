@@ -1,7 +1,5 @@
 package com.backend.rental_events.models;
 
-import java.util.List;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -58,33 +56,31 @@ public class Equipamento {
 
     @OneToOne
     @JoinColumn(name = "categoria_id", referencedColumnName = "categoria_id")
-    private List<Categoria> categoria;
+    private Categoria categoria;
 
     @ManyToOne
     @JoinColumn(name = "marca_id", referencedColumnName = "marca_id")
-    private List<Marca> marca;
+    private Marca marca;
 
     public Equipamento() {
     }
 
-    public Equipamento(Integer equipamentoId, String nome, String modelo, String potencia, String material, String peso,
-            String dimensoes, String cor, Integer quantidadeDisponivel, Integer quantidadeMinima, String descricao,
-            String valorDiaria, String estado, List<Categoria> categoria, List<Marca> marca) {
-        this.equipamentoId = equipamentoId;
-        this.nome = nome;
-        this.modelo = modelo;
-        this.potencia = potencia;
-        this.material = material;
-        this.peso = peso;
-        this.dimensoes = dimensoes;
+    public Equipamento(Categoria categoria, String cor, String descricao, String dimensoes, Integer equipamentoId, String estado, Marca marca, String material, String modelo, String nome, String peso, String potencia, Integer quantidadeDisponivel, Integer quantidadeMinima, String valorDiaria) {
+        this.categoria = categoria;
         this.cor = cor;
+        this.descricao = descricao;
+        this.dimensoes = dimensoes;
+        this.equipamentoId = equipamentoId;
+        this.estado = estado;
+        this.marca = marca;
+        this.material = material;
+        this.modelo = modelo;
+        this.nome = nome;
+        this.peso = peso;
+        this.potencia = potencia;
         this.quantidadeDisponivel = quantidadeDisponivel;
         this.quantidadeMinima = quantidadeMinima;
-        this.descricao = descricao;
         this.valorDiaria = valorDiaria;
-        this.estado = estado;
-        this.categoria = categoria;
-        this.marca = marca;
     }
 
     public Integer getEquipamentoId() {
@@ -191,19 +187,19 @@ public class Equipamento {
         this.estado = estado;
     }
 
-    public List<Categoria> getCategoria() {
+    public Categoria getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(List<Categoria> categoria) {
+    public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
 
-    public List<Marca> getMarca() {
+    public Marca getMarca() {
         return marca;
     }
 
-    public void setMarca(List<Marca> marca) {
+    public void setMarca(Marca marca) {
         this.marca = marca;
     }
 

@@ -11,7 +11,7 @@ import com.backend.rental_events.repositories.EquipamentoRepository;
 @Service
 public class EquipamentoService {
     @Autowired
-    private EquipamentoRepository equipamentoRepository;
+    private final EquipamentoRepository equipamentoRepository;
 
     public EquipamentoService(EquipamentoRepository _equipamentoRepository){
         equipamentoRepository = _equipamentoRepository;

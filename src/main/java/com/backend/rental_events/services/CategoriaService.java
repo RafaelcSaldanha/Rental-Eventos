@@ -12,7 +12,7 @@ import com.backend.rental_events.repositories.CategoriaRepository;
 public class CategoriaService {
 
     @Autowired
-    private CategoriaRepository categoriaRepository; 
+    private final CategoriaRepository categoriaRepository; 
 
     public CategoriaService(CategoriaRepository _categoriaRepository){
         categoriaRepository = _categoriaRepository;
