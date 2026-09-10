@@ -1,7 +1,7 @@
 create database rental_db;
 
 create table funcionario (
-	usuario_id serial primary key,
+	funcionario_id serial primary key,
 	nome varchar(50) not null,
 	email varchar(50) not null,
 	senha varchar(30) not null,
@@ -45,5 +45,5 @@ create table movimentacao(
 	quantidade varchar(50) not null,
 	data_movimentacao date not null,
 	equipamento_id int, foreign key (equipamento_id) references equipamento(equipamento_id),
-	funcionario_id int, foreign key (funcionario_id) references funcionario(usuario_id)
+	funcionario_id int, foreign key (funcionario_id) references funcionario(funcionario_id)
 );
