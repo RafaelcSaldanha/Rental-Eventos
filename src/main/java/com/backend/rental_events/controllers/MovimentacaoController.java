@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -51,7 +52,7 @@ public class MovimentacaoController {
         return movimentacaoService.cadastrarMovimentacao(movimentacao);
     }
 
-    @PostMapping("/atualizar-movimentacoes/{id}")
+    @PutMapping("/atualizar-movimentacoes/{id}")
     public String atualizarMovimentacao(@PathVariable Integer id, @RequestBody Movimentacao movimentacao) {
         if(movimentacaoService.atualizarMovimentacao(id, movimentacao) != null) {
             return "Movimentacao atualizada com sucesso";

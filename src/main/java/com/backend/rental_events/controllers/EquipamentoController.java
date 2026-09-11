@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,17 +18,19 @@ import com.backend.rental_events.services.EquipamentoService;
 @RequestMapping("/equipamentos")
 public class EquipamentoController {
     
+    private final CategoriaController categoriaController;
     private final EquipamentoService equipamentoService;
 
-    public EquipamentoController(EquipamentoService equipamentoService) {
+    public EquipamentoController(EquipamentoService equipamentoService, CategoriaController categoriaController) {
         this.equipamentoService = equipamentoService;
+        this.categoriaController = categoriaController;
     }
 
     @GetMapping("/contar-equipamentos")
     public Long contarEquipamentos() {
-        //if(categoriaController.contarCategorias() <= 5) {
-        //    return -5L;
-        //}
+        if(categoriaController.contarCategorias() <= 5) {
+            return -5L;
+        }
         return equipamentoService.countEquipamentos();
     }
 
@@ -54,7 +57,7 @@ public class EquipamentoController {
         return equipamentoService.cadastrarEquipamento(equipamento);
     }
 
-    @PostMapping("/atualizar-equipamentos/{id}")
+    @PutMapping("/atualizar-equipamentos/{id}")
     public String atualizarEquipamento(@PathVariable Integer id, @RequestBody Equipamento equipamento) {
         if(equipamentoService.atualizarEquipamento(id, equipamento) != null) {
             return "Equipamento atualizado com sucesso";
