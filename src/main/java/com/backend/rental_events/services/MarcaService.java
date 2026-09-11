@@ -2,7 +2,6 @@ package com.backend.rental_events.services;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.backend.rental_events.models.Marca;
@@ -10,7 +9,7 @@ import com.backend.rental_events.repositories.MarcaRepository;
 
 @Service
 public class MarcaService {
-    @Autowired
+    
     private final MarcaRepository marcaRepository;
 
     public MarcaService(MarcaRepository _marcaRepository){

@@ -2,7 +2,6 @@ package com.backend.rental_events.controllers;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,7 +16,7 @@ import com.backend.rental_events.services.EquipamentoService;
 @RestController
 @RequestMapping("/equipamentos")
 public class EquipamentoController {
-    @Autowired
+    
     private EquipamentoService equipamentoService;
 
     @GetMapping("/contar-equipamentos")

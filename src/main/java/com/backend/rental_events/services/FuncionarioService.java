@@ -2,7 +2,6 @@ package com.backend.rental_events.services;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.backend.rental_events.models.Funcionario;
@@ -10,7 +9,7 @@ import com.backend.rental_events.repositories.FuncionarioRepository;
 
 @Service
 public class FuncionarioService {
-    @Autowired
+    
     private final FuncionarioRepository funcionarioRepository;
 
     public FuncionarioService(FuncionarioRepository _funcionarioRepository){

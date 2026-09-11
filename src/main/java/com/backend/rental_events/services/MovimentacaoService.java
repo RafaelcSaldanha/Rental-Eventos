@@ -2,7 +2,6 @@ package com.backend.rental_events.services;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.backend.rental_events.models.Movimentacao;
@@ -10,7 +9,7 @@ import com.backend.rental_events.repositories.MovimentacaoRepository;
 
 @Service
 public class MovimentacaoService {
-    @Autowired
+    
     private final MovimentacaoRepository movimentacaoRepository;
 
     public MovimentacaoService(MovimentacaoRepository _movimentacaoRepository){

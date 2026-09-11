@@ -2,7 +2,6 @@ package com.backend.rental_events.controllers;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,7 +21,6 @@ import com.backend.rental_events.services.CategoriaService;
 @RequestMapping("/categorias")
 public class CategoriaController {
 
-    @Autowired
     private CategoriaService categoriaService;
 
     @GetMapping("/contar-categorias")
