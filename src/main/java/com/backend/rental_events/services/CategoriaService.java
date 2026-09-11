@@ -10,10 +10,10 @@ import com.backend.rental_events.repositories.CategoriaRepository;
 @Service
 public class CategoriaService {
 
-    private final CategoriaRepository categoriaRepository; 
+    private final CategoriaRepository categoriaRepository;
 
-    public CategoriaService(CategoriaRepository _categoriaRepository){
-        categoriaRepository = _categoriaRepository;
+    public CategoriaService(CategoriaRepository categoriaRepository) {
+        this.categoriaRepository = categoriaRepository;
     }
 
     public Long countCategorias() {

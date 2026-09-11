@@ -17,7 +17,11 @@ import com.backend.rental_events.services.EquipamentoService;
 @RequestMapping("/equipamentos")
 public class EquipamentoController {
     
-    private EquipamentoService equipamentoService;
+    private final EquipamentoService equipamentoService;
+
+    public EquipamentoController(EquipamentoService equipamentoService) {
+        this.equipamentoService = equipamentoService;
+    }
 
     @GetMapping("/contar-equipamentos")
     public Long contarEquipamentos() {

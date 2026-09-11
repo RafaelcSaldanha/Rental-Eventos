@@ -5,15 +5,16 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.backend.rental_events.models.Equipamento;
+import com.backend.rental_events.repositories.CategoriaRepository;
 import com.backend.rental_events.repositories.EquipamentoRepository;
 
 @Service
 public class EquipamentoService {
-    
+
     private final EquipamentoRepository equipamentoRepository;
 
-    public EquipamentoService(EquipamentoRepository _equipamentoRepository){
-        equipamentoRepository = _equipamentoRepository;
+    public EquipamentoService(CategoriaRepository categoriaRepository, EquipamentoRepository equipamentoRepository) {
+        this.equipamentoRepository = equipamentoRepository;
     }
 
     public Long countEquipamentos() {

@@ -17,7 +17,12 @@ import com.backend.rental_events.services.MarcaService;
 @RequestMapping("/marcas")
 public class MarcaController {
     
-    private MarcaService marcaService;
+    private final MarcaService marcaService;
+
+    // Construtor para injeção de dependência automática pelo Spring
+    public MarcaController(MarcaService marcaService) {
+        this.marcaService = marcaService;
+    }
 
     @GetMapping("/contar-marcas")
     public Long contarMarcas() {

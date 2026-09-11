@@ -17,7 +17,11 @@ import com.backend.rental_events.services.FuncionarioService;
 @RequestMapping("/funcionarios")
 public class FuncionarioController {
     
-    private FuncionarioService funcionarioService;
+    private final FuncionarioService funcionarioService;
+
+    public FuncionarioController(FuncionarioService funcionarioService) {
+        this.funcionarioService = funcionarioService;
+    }
 
     @GetMapping("/contar-funcionarios")
     public Long contarFuncionarios() {

@@ -9,11 +9,11 @@ import com.backend.rental_events.repositories.FuncionarioRepository;
 
 @Service
 public class FuncionarioService {
-    
+
     private final FuncionarioRepository funcionarioRepository;
 
-    public FuncionarioService(FuncionarioRepository _funcionarioRepository){
-        funcionarioRepository = _funcionarioRepository;
+    public FuncionarioService(FuncionarioRepository funcionarioRepository) {
+        this.funcionarioRepository = funcionarioRepository;
     }
 
     public Long countFuncionarios() {

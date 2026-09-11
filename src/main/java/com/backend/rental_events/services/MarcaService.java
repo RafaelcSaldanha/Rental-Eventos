@@ -9,11 +9,11 @@ import com.backend.rental_events.repositories.MarcaRepository;
 
 @Service
 public class MarcaService {
-    
+
     private final MarcaRepository marcaRepository;
 
-    public MarcaService(MarcaRepository _marcaRepository){
-        marcaRepository = _marcaRepository;
+    public MarcaService(MarcaRepository marcaRepository) {
+        this.marcaRepository = marcaRepository;
     }
 
     public Long countMarcas() {

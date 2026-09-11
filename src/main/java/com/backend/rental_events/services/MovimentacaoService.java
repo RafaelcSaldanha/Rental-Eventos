@@ -9,11 +9,11 @@ import com.backend.rental_events.repositories.MovimentacaoRepository;
 
 @Service
 public class MovimentacaoService {
-    
+
     private final MovimentacaoRepository movimentacaoRepository;
 
-    public MovimentacaoService(MovimentacaoRepository _movimentacaoRepository){
-        movimentacaoRepository = _movimentacaoRepository;
+    public MovimentacaoService(MovimentacaoRepository movimentacaoRepository) {
+        this.movimentacaoRepository = movimentacaoRepository;
     }
 
     public Long countMovimentacoes() {

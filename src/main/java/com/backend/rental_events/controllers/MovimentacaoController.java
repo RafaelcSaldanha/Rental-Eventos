@@ -17,7 +17,11 @@ import com.backend.rental_events.services.MovimentacaoService;
 @RequestMapping("/movimentacoes")
 public class MovimentacaoController {
     
-    private MovimentacaoService movimentacaoService;
+    private final MovimentacaoService movimentacaoService;
+
+    public MovimentacaoController(MovimentacaoService movimentacaoService) {
+        this.movimentacaoService = movimentacaoService;
+    }
 
     @GetMapping("/contar-movimentacoes")
     public Long contarMovimentacoes() {
