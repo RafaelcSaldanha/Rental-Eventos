@@ -48,11 +48,6 @@ create table movimentacao(
 	funcionario_id int, foreign key (funcionario_id) references funcionario(funcionario_id)
 );
 
-
--- ============================================
--- INSERTS - FUNCIONARIO
--- ============================================
-
 INSERT INTO funcionario (nome, email, senha, cargo) VALUES
 ('João Silva', 'joao.silva@email.com', 'senha123', 'Administrador'),
 ('Maria Oliveira', 'maria.oliveira@email.com', 'senha456', 'Gerente'),
@@ -60,10 +55,6 @@ INSERT INTO funcionario (nome, email, senha, cargo) VALUES
 ('Ana Santos', 'ana.santos@email.com', 'ana123', 'Atendente'),
 ('Pedro Costa', 'pedro.costa@email.com', 'pedro456', 'Estoquista');
 
-
--- ============================================
--- INSERTS - CATEGORIA
--- ============================================
 
 INSERT INTO categoria (nome, descricao) VALUES
 ('Ferramentas Elétricas', 'Equipamentos elétricos utilizados em obras, reformas e serviços de manutenção.'),
@@ -73,10 +64,6 @@ INSERT INTO categoria (nome, descricao) VALUES
 ('Equipamentos de Medição', 'Equipamentos utilizados para medição e controle em obras e serviços técnicos.');
 
 
--- ============================================
--- INSERTS - MARCA
--- ============================================
-
 INSERT INTO marca (nome, ativo, observacao) VALUES
 ('Bosch', true, 'Marca especializada em ferramentas e equipamentos profissionais.'),
 ('Makita', true, 'Marca reconhecida por ferramentas elétricas de alta qualidade.'),
@@ -84,10 +71,6 @@ INSERT INTO marca (nome, ativo, observacao) VALUES
 ('Vonder', true, 'Marca brasileira de ferramentas e equipamentos.'),
 ('Tramontina', true, 'Fabricante de ferramentas e equipamentos diversos.');
 
-
--- ============================================
--- INSERTS - EQUIPAMENTO
--- ============================================
 
 INSERT INTO equipamento (
     nome,
@@ -266,10 +249,6 @@ INSERT INTO equipamento (
     3
 );
 
-
--- ============================================
--- INSERTS - MOVIMENTACAO
--- ============================================
 
 INSERT INTO movimentacao (
     tipo,
